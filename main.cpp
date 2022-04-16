@@ -74,12 +74,21 @@ float Relevance(float dist, float magnitude) {
 		distRel = 7;
 	else if (dist > 200 && dist < 500)
 		distRel = 6;
-	else
+	else if (dist > 500 && dist < 1000)
 		distRel = 5;
+	else if (dist > 1000 && dist < 2000)
+		distRel = 4;
+	else if (dist > 2000 && dist < 5000)
+		distRel = 3;
+	else if (dist > 5000 && dist < 10000)
+		distRel = 2;
+	else
+		distRel = 1;
 	float relevance = distRel * magnitude;
+	return relevance;
 }
 
-void ReadFile(string fileName, vector<Quake> quakes, float userLong, float userLat) {
+void ReadFile(string fileName, vector<Quake>& quakes, float userLong, float userLat) {
 	ifstream inFile(fileName);
 	if (inFile.is_open()) {
 
@@ -115,7 +124,7 @@ void ReadFile(string fileName, vector<Quake> quakes, float userLong, float userL
 
 			getline(stream, date);
 
-			float distance = float(sqrt(pow(double(userLong - longitude), 2) + pow(double(userLat - latitude), 2))) * 69;
+			float distance = float(sqrt(pow(double(double(userLong) - double(longitude)), 2) + pow(double(double(userLat) - double(latitude)), 2))) * 69;
 			float relevance = Relevance(distance, mag);
 
 			Quake quake(depth, mag, distance, relevance, date);
@@ -128,5 +137,7 @@ int main() {
 	vector<Quake> quakes;
 	float userLong;
 	float userLat;
+	cin >> userLong;
+	cin >> userLat;
 	ReadFile("quakes.csv", quakes, userLong, userLat);
 }
