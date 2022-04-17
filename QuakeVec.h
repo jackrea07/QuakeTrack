@@ -76,5 +76,11 @@ public:
 		}
 		return solution;
 	}
+	void QuickSort(std::string) {
+
+	}
+	void HeapSort(std::string) {
+
+	}
 };
 
