@@ -642,7 +642,7 @@ namespace QuakeUI {
 		float userLong = float(userLongD);
 		//int sortParam = System::Convert::ToInt16(textBox3->Text); //1 for relevance, 2 for magnitude, 3 for distance
 		QuakeVec gamer(userLat, userLong);
-		gamer.QuickSort(sortParam);
+		gamer.QuickSort(sortParam, 0,gamer.quakes.size() - 1,0);
 		std::vector<Quake> sol = gamer.ReturnTop5(sortParam);
 		float dist1 = sol[0].GetDistance();
 		float mag1 = sol[0].GetMag();
@@ -722,5 +722,5 @@ namespace QuakeUI {
 	}
 	private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-};
+	};
 }
