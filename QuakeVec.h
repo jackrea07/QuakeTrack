@@ -70,14 +70,14 @@ public:
 			}
 		}
 	}
-	std::vector<Quake> ReturnTop5() {
+	std::vector<Quake> ReturnTop5(int sortParam) {
 		std::vector<Quake> solution;
 		for (int i = 0; i < 5; i++) {
 			solution.push_back(quakes[i]);
 		}
 		return solution;
 	}
-	int Partition(std::string category, int first, int last, int pivotindex) 
+	int Partition(int sortParam, int first, int last, int pivotindex)
 	{
 		int pivot = quakes[pivotindex].GetMag();
 		int up = first;
@@ -114,16 +114,16 @@ public:
 		quakes[pivotindex] = temp;
 		return down;
 	}
-	void QuakeVec::QuickSort(std::string category, int first, int last, int pivotindex)
+	void QuickSort(int sortParam, int first, int last, int pivotindex)
 	{
 		if (first < last)
 		{
-			int pivot = Partition(category, first, last, pivotindex);
-			QuickSort(category, first, pivot - 1, pivotindex);
-			QuickSort(category, pivot + 1, last, pivot + 1);
+			int pivot = Partition(sortParam, first, last, pivotindex);
+			QuickSort(sortParam, first, pivot - 1, pivotindex);
+			QuickSort(sortParam, pivot + 1, last, pivot + 1);
 		}
 	}
-	void HeapSort(std::string) 
+	void HeapSort(std::string)
 	{
 
 	}
