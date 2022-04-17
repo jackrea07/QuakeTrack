@@ -2,8 +2,9 @@
 float Heap::FLOAT_MIN = std::numeric_limits<float>::max() * -1;
 float Heap::FLOAT_MAX = std::numeric_limits<float>::max();
 
-Heap::Heap(string t) {
+Heap::Heap(string t, string m) {
 	type = t;
+	metric = m;
 	currentSize = 0;
 	capacity = 1;
 	nextOpenIndex = 0;
@@ -33,9 +34,10 @@ Quake Heap::extract() {
 	return root;
 }
 
-void Heap::buildHeapInPlace(Quake* quakes, string t, int n) {
+void Heap::buildHeapInPlace(Quake* quakes, string t, string m, int n) {
 	delete[] heap;
 	type = t;
+	metric = m;
 	heap = quakes;
 	currentSize = n;
 	nextOpenIndex = n;
@@ -76,10 +78,10 @@ void Heap::heapifyUp(int index) {
 
 bool Heap::heapifyUpCheck(int parent, int current) {
 	if (type == "min") {
-		return heap[parent].GetRelevance() > heap[current].GetRelevance();
+		return getMetricValue(heap[parent]) > getMetricValue(heap[current]);
 	}
 	else {
-		return heap[parent].GetRelevance() < heap[current].GetRelevance();
+		return getMetricValue(heap[parent]) < getMetricValue(heap[current]);
 	}
 }
 
@@ -96,17 +98,17 @@ void Heap::heapifyDown(int index) {
 		return;
 	}
 	else {
-		left = heap[leftPosition].GetRelevance();
+		left = getMetricValue(heap[leftPosition]);
 	}
 
 	if (rightPosition > currentSize - 1) {
 		right = type == "min" ? FLOAT_MAX : FLOAT_MIN; 
 	}
 	else {
-		right = heap[rightPosition].GetRelevance();
+		right = getMetricValue(heap[rightPosition]);
 	}
 	if (type == "min") {
-		if (current.GetRelevance() > left || current.GetRelevance() > right) {
+		if (getMetricValue(current) > left || getMetricValue(current) > right) {
 			int minIndex;
 			if (left <= right) {
 				minIndex = leftPosition;
@@ -120,7 +122,7 @@ void Heap::heapifyDown(int index) {
 		}
 	}
 	else if(type == "max") {
-		if (current.GetRelevance() < left || current.GetRelevance() < right) {
+		if (getMetricValue(current) < left || getMetricValue(current) < right) {
 			int maxIndex;
 			if (left >= right) {
 				maxIndex = leftPosition;
@@ -150,13 +152,25 @@ void Heap::printHeap() {
 			cout << endl;
 			next *= 2;
 		}
-		cout << heap[i].GetRelevance() << " ";
+		cout << getMetricValue(heap[i]) << " ";
 	}
 	cout << endl;
 }
 
 void Heap::printHeap2() {
 	for (int i = 0; i < currentSize; i++) {
-		cout << "heap[" << i << "]: " << heap[i].GetRelevance() << endl;
+		cout << "heap[" << i << "]: " << getMetricValue(heap[i]) << endl;
+	}
+}
+
+float Heap::getMetricValue(Quake q) {
+	if (metric == "relevance") {
+		return q.GetRelevance();
+	}
+	else if (metric == "distance") {
+		return q.GetDistance();
+	}
+	else if (metric == "magnitude") {
+		return q.GetMag();
 	}
 }
