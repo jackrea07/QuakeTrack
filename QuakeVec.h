@@ -71,7 +71,7 @@ public:
 	}
 	std::vector<Quake> ReturnTop5(){
 		std::vector<Quake> solution;
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 5; i++) {
 			solution.push_back(quakes[i]);
 		}
 		return solution;
