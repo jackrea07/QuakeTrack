@@ -4,6 +4,7 @@ class QuakeVec
 {
 public:
 	std::vector<Quake> quakes;
+
 	QuakeVec(float userLat, float userLong) {
 		std::ifstream inFile("quakes.csv");
 		if (inFile.is_open()) {
@@ -69,18 +70,61 @@ public:
 			}
 		}
 	}
-	std::vector<Quake> ReturnTop5(){
+	std::vector<Quake> ReturnTop5() {
 		std::vector<Quake> solution;
 		for (int i = 0; i < 5; i++) {
 			solution.push_back(quakes[i]);
 		}
 		return solution;
 	}
-	void QuickSort(std::string) {
+	int Partition(std::string category, int first, int last, int pivotindex) 
+	{
+		int pivot = quakes[pivotindex].GetMag();
+		int up = first;
+		int down = last;
 
+		while (up < down)
+		{
+			while (up < last)
+			{
+				if (quakes[up].GetMag() > pivot)
+				{
+					break;
+				}
+				up++;
+			}
+			while (down > first)
+			{
+				if (quakes[down].GetMag() < pivot)
+				{
+					break;
+				}
+				down--;
+			}
+			if (up < down)
+			{
+				Quake temp = quakes[down];
+				quakes[down] = quakes[up];
+				quakes[up] = temp;
+			}
+		}
+
+		Quake temp = quakes[down];
+		quakes[down] = quakes[pivotindex];
+		quakes[pivotindex] = temp;
+		return down;
 	}
-	void HeapSort(std::string) {
+	void QuakeVec::QuickSort(std::string category, int first, int last, int pivotindex)
+	{
+		if (first < last)
+		{
+			int pivot = Partition(category, first, last, pivotindex);
+			QuickSort(category, first, pivot - 1, pivotindex);
+			QuickSort(category, pivot + 1, last, pivot + 1);
+		}
+	}
+	void HeapSort(std::string) 
+	{
 
 	}
 };
-
