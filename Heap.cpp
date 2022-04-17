@@ -2,7 +2,7 @@
 float Heap::FLOAT_MIN = std::numeric_limits<float>::max() * -1;
 float Heap::FLOAT_MAX = std::numeric_limits<float>::max();
 
-Heap::Heap(string t, string m) {
+Heap::Heap(string t, char m) {
 	type = t;
 	metric = m;
 	currentSize = 0;
@@ -34,7 +34,7 @@ Quake Heap::extract() {
 	return root;
 }
 
-void Heap::buildHeapInPlace(Quake* quakes, string t, string m, int n) {
+void Heap::buildHeapInPlace(Quake* quakes, string t, char m, int n) {
 	delete[] heap;
 	type = t;
 	metric = m;
@@ -164,13 +164,13 @@ void Heap::printHeap2() {
 }
 
 float Heap::getMetricValue(Quake q) {
-	if (metric == "relevance") {
+	if (metric == 1) {
 		return q.GetRelevance();
 	}
-	else if (metric == "distance") {
+	else if (metric == 3) {
 		return q.GetDistance();
 	}
-	else if (metric == "magnitude") {
+	else if (metric == 2) {
 		return q.GetMag();
 	}
 }

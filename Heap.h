@@ -15,7 +15,7 @@ class Heap
 	static float FLOAT_MIN;
 	static float FLOAT_MAX;
 	string type;
-	string metric;
+	char metric;
 	unsigned int currentSize;
 	unsigned int capacity;
 	unsigned int nextOpenIndex;
@@ -29,7 +29,7 @@ class Heap
 	float getMetricValue(Quake q);
 	
 public:
-	Heap(string t, string m);
+	Heap(string t, char m);
 	Heap();
 	void insert(Quake q);
 	Quake extract();
@@ -37,6 +37,6 @@ public:
 	Quake top();
 	void printHeap();
 	void printHeap2();
-	void buildHeapInPlace(Quake* quakes, string t, string m, int n);
+	void buildHeapInPlace(Quake* quakes, string t, char m, int n);
 };
 
