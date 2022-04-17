@@ -712,8 +712,8 @@ private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArg
 
 }
 private: System::Void pictureBox1_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-	textBox2->Text = System::Convert::ToString(e->X / 2 - 180);
-	textBox1->Text = System::Convert::ToString((e->Y / 2 - 90) * -1);
+	textBox2->Text = System::Convert::ToString(e->X / 2.0 - 180);
+	textBox1->Text = System::Convert::ToString((e->Y / 2.0 - 90) * -1);
 }
 private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
 }
