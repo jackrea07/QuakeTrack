@@ -3,7 +3,7 @@
 class HeapAlgorithms
 {
 public:
-	static vector<Quake> kthSmallest(vector<Quake>& quakes, int k, string metric);
-	static vector<Quake> heapSort(Quake* quakes, int size, string type, string metric);
+	static vector<Quake> kthSmallest(vector<Quake>& quakes, int k, int metric);
+	static vector<Quake> heapSort(Quake* quakes, int size, string type, int metric);
 };
 

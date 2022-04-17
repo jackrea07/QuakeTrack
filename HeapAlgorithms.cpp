@@ -1,8 +1,8 @@
 #include "HeapAlgorithms.h"
 
 //metric is "relevance", "distance", or "magnitude"
-vector<Quake> HeapAlgorithms::kthSmallest(vector<Quake>& quakes, int k, string metric) {
-	Heap heap("max", metric);
+vector<Quake> HeapAlgorithms::kthSmallest(vector<Quake>& quakes, int k, int metric) {
+	Heap heap("max", (char)metric);
 	for (int i = 0; i < quakes.size(); i++) {
 		if (heap.size() >= k && quakes[i].GetRelevance() > heap.top().GetRelevance())
 			continue;
@@ -19,7 +19,7 @@ vector<Quake> HeapAlgorithms::kthSmallest(vector<Quake>& quakes, int k, string m
 }
 
 //type is either "ascending" or "descending"
-vector<Quake> HeapAlgorithms::heapSort(Quake* quakes, int size, string type, string metric) {
+vector<Quake> HeapAlgorithms::heapSort(Quake* quakes, int size, string type, int metric) {
 	if (type == "ascending") {
 		type = "min";
 	}
@@ -27,7 +27,7 @@ vector<Quake> HeapAlgorithms::heapSort(Quake* quakes, int size, string type, str
 		type = "max";
 	}
 	Heap heap;
-	heap.buildHeapInPlace(quakes, type, metric, size);
+	heap.buildHeapInPlace(quakes, type, (char)metric, size);
 	vector<Quake> result;
 	for (int i = 0; i < size; i++) {
 		result.push_back(heap.extract());
