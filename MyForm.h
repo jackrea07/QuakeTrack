@@ -174,10 +174,9 @@ namespace QuakeUI {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei UI", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(171, 9);
-			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label1->Location = System::Drawing::Point(256, 14);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(457, 41);
+			this->label1->Size = System::Drawing::Size(686, 62);
 			this->label1->TabIndex = 2;
 			this->label1->Text = L"WELCOME TO QUAKETRACK";
 			this->label1->TextAlign = System::Drawing::ContentAlignment::TopCenter;
@@ -187,36 +186,32 @@ namespace QuakeUI {
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(228, 50);
-			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label2->Location = System::Drawing::Point(342, 77);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(345, 17);
+			this->label2->Size = System::Drawing::Size(491, 25);
 			this->label2->TabIndex = 3;
 			this->label2->Text = L"PLEASE ENTER YOUR LATITUDE AND LONGITUDE";
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(231, 94);
-			this->textBox1->Margin = System::Windows::Forms::Padding(2);
+			this->textBox1->Location = System::Drawing::Point(346, 145);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(118, 20);
+			this->textBox1->Size = System::Drawing::Size(175, 26);
 			this->textBox1->TabIndex = 4;
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(425, 94);
-			this->textBox2->Margin = System::Windows::Forms::Padding(2);
+			this->textBox2->Location = System::Drawing::Point(638, 145);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(117, 20);
+			this->textBox2->Size = System::Drawing::Size(174, 26);
 			this->textBox2->TabIndex = 5;
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(272, 79);
-			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label3->Location = System::Drawing::Point(408, 122);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(45, 13);
+			this->label3->Size = System::Drawing::Size(67, 20);
 			this->label3->TabIndex = 6;
 			this->label3->Text = L"Latitude";
 			this->label3->Click += gcnew System::EventHandler(this, &MyForm::label3_Click);
@@ -224,10 +219,9 @@ namespace QuakeUI {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(456, 79);
-			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label4->Location = System::Drawing::Point(684, 122);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(54, 13);
+			this->label4->Size = System::Drawing::Size(80, 20);
 			this->label4->TabIndex = 7;
 			this->label4->Text = L"Longitude";
 			// 
@@ -236,10 +230,9 @@ namespace QuakeUI {
 			this->label5->AutoSize = true;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(225, 482);
-			this->label5->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label5->Location = System::Drawing::Point(338, 742);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(63, 20);
+			this->label5->Size = System::Drawing::Size(94, 29);
 			this->label5->TabIndex = 8;
 			this->label5->Text = L"Sort by:";
 			this->label5->Click += gcnew System::EventHandler(this, &MyForm::label5_Click);
@@ -249,10 +242,9 @@ namespace QuakeUI {
 			this->label6->AutoSize = true;
 			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label6->Location = System::Drawing::Point(317, 551);
-			this->label6->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label6->Location = System::Drawing::Point(476, 848);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(146, 26);
+			this->label6->Size = System::Drawing::Size(214, 37);
 			this->label6->TabIndex = 10;
 			this->label6->Text = L"Your Quakes:";
 			// 
@@ -261,10 +253,9 @@ namespace QuakeUI {
 			this->label7->AutoSize = true;
 			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label7->Location = System::Drawing::Point(99, 578);
-			this->label7->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label7->Location = System::Drawing::Point(148, 889);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(97, 13);
+			this->label7->Size = System::Drawing::Size(138, 20);
 			this->label7->TabIndex = 11;
 			this->label7->Text = L"Distance (miles)";
 			// 
@@ -273,10 +264,9 @@ namespace QuakeUI {
 			this->label8->AutoSize = true;
 			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label8->Location = System::Drawing::Point(238, 578);
-			this->label8->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label8->Location = System::Drawing::Point(352, 889);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(66, 13);
+			this->label8->Size = System::Drawing::Size(93, 20);
 			this->label8->TabIndex = 12;
 			this->label8->Text = L"Magnitude";
 			// 
@@ -285,10 +275,9 @@ namespace QuakeUI {
 			this->label9->AutoSize = true;
 			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label9->Location = System::Drawing::Point(371, 578);
-			this->label9->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label9->Location = System::Drawing::Point(556, 889);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(41, 13);
+			this->label9->Size = System::Drawing::Size(58, 20);
 			this->label9->TabIndex = 13;
 			this->label9->Text = L"Depth";
 			// 
@@ -297,10 +286,9 @@ namespace QuakeUI {
 			this->label10->AutoSize = true;
 			this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label10->Location = System::Drawing::Point(476, 578);
-			this->label10->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label10->Location = System::Drawing::Point(716, 889);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(34, 13);
+			this->label10->Size = System::Drawing::Size(48, 20);
 			this->label10->TabIndex = 14;
 			this->label10->Text = L"Date";
 			// 
@@ -309,20 +297,18 @@ namespace QuakeUI {
 			this->label11->AutoSize = true;
 			this->label11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label11->Location = System::Drawing::Point(585, 578);
-			this->label11->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label11->Location = System::Drawing::Point(822, 889);
 			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(68, 13);
+			this->label11->Size = System::Drawing::Size(234, 20);
 			this->label11->TabIndex = 15;
-			this->label11->Text = L"Relevance";
+			this->label11->Text = L"Relevance Score (Max: 100)";
 			// 
 			// label12
 			// 
 			this->label12->AutoSize = true;
-			this->label12->Location = System::Drawing::Point(129, 607);
-			this->label12->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label12->Location = System::Drawing::Point(194, 934);
 			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(41, 13);
+			this->label12->Size = System::Drawing::Size(60, 20);
 			this->label12->TabIndex = 16;
 			this->label12->Text = L"label12";
 			this->label12->Visible = false;
@@ -330,10 +316,9 @@ namespace QuakeUI {
 			// label13
 			// 
 			this->label13->AutoSize = true;
-			this->label13->Location = System::Drawing::Point(247, 607);
-			this->label13->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label13->Location = System::Drawing::Point(370, 934);
 			this->label13->Name = L"label13";
-			this->label13->Size = System::Drawing::Size(41, 13);
+			this->label13->Size = System::Drawing::Size(60, 20);
 			this->label13->TabIndex = 17;
 			this->label13->Text = L"label13";
 			this->label13->Visible = false;
@@ -341,10 +326,9 @@ namespace QuakeUI {
 			// label14
 			// 
 			this->label14->AutoSize = true;
-			this->label14->Location = System::Drawing::Point(371, 607);
-			this->label14->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label14->Location = System::Drawing::Point(556, 934);
 			this->label14->Name = L"label14";
-			this->label14->Size = System::Drawing::Size(41, 13);
+			this->label14->Size = System::Drawing::Size(60, 20);
 			this->label14->TabIndex = 18;
 			this->label14->Text = L"label14";
 			this->label14->Visible = false;
@@ -352,10 +336,9 @@ namespace QuakeUI {
 			// label15
 			// 
 			this->label15->AutoSize = true;
-			this->label15->Location = System::Drawing::Point(476, 607);
-			this->label15->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label15->Location = System::Drawing::Point(714, 934);
 			this->label15->Name = L"label15";
-			this->label15->Size = System::Drawing::Size(41, 13);
+			this->label15->Size = System::Drawing::Size(60, 20);
 			this->label15->TabIndex = 19;
 			this->label15->Text = L"label15";
 			this->label15->Visible = false;
@@ -363,10 +346,9 @@ namespace QuakeUI {
 			// label16
 			// 
 			this->label16->AutoSize = true;
-			this->label16->Location = System::Drawing::Point(599, 607);
-			this->label16->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label16->Location = System::Drawing::Point(898, 934);
 			this->label16->Name = L"label16";
-			this->label16->Size = System::Drawing::Size(41, 13);
+			this->label16->Size = System::Drawing::Size(60, 20);
 			this->label16->TabIndex = 20;
 			this->label16->Text = L"label16";
 			this->label16->Visible = false;
@@ -374,10 +356,9 @@ namespace QuakeUI {
 			// label17
 			// 
 			this->label17->AutoSize = true;
-			this->label17->Location = System::Drawing::Point(129, 632);
-			this->label17->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label17->Location = System::Drawing::Point(194, 972);
 			this->label17->Name = L"label17";
-			this->label17->Size = System::Drawing::Size(41, 13);
+			this->label17->Size = System::Drawing::Size(60, 20);
 			this->label17->TabIndex = 21;
 			this->label17->Text = L"label17";
 			this->label17->Visible = false;
@@ -385,10 +366,9 @@ namespace QuakeUI {
 			// label18
 			// 
 			this->label18->AutoSize = true;
-			this->label18->Location = System::Drawing::Point(247, 632);
-			this->label18->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label18->Location = System::Drawing::Point(370, 972);
 			this->label18->Name = L"label18";
-			this->label18->Size = System::Drawing::Size(41, 13);
+			this->label18->Size = System::Drawing::Size(60, 20);
 			this->label18->TabIndex = 22;
 			this->label18->Text = L"label18";
 			this->label18->Visible = false;
@@ -396,10 +376,9 @@ namespace QuakeUI {
 			// label19
 			// 
 			this->label19->AutoSize = true;
-			this->label19->Location = System::Drawing::Point(371, 632);
-			this->label19->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label19->Location = System::Drawing::Point(556, 972);
 			this->label19->Name = L"label19";
-			this->label19->Size = System::Drawing::Size(41, 13);
+			this->label19->Size = System::Drawing::Size(60, 20);
 			this->label19->TabIndex = 23;
 			this->label19->Text = L"label19";
 			this->label19->Visible = false;
@@ -407,10 +386,9 @@ namespace QuakeUI {
 			// label20
 			// 
 			this->label20->AutoSize = true;
-			this->label20->Location = System::Drawing::Point(476, 632);
-			this->label20->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label20->Location = System::Drawing::Point(714, 972);
 			this->label20->Name = L"label20";
-			this->label20->Size = System::Drawing::Size(41, 13);
+			this->label20->Size = System::Drawing::Size(60, 20);
 			this->label20->TabIndex = 24;
 			this->label20->Text = L"label20";
 			this->label20->Visible = false;
@@ -418,10 +396,9 @@ namespace QuakeUI {
 			// label21
 			// 
 			this->label21->AutoSize = true;
-			this->label21->Location = System::Drawing::Point(599, 632);
-			this->label21->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label21->Location = System::Drawing::Point(898, 972);
 			this->label21->Name = L"label21";
-			this->label21->Size = System::Drawing::Size(41, 13);
+			this->label21->Size = System::Drawing::Size(60, 20);
 			this->label21->TabIndex = 25;
 			this->label21->Text = L"label21";
 			this->label21->Visible = false;
@@ -429,10 +406,9 @@ namespace QuakeUI {
 			// label22
 			// 
 			this->label22->AutoSize = true;
-			this->label22->Location = System::Drawing::Point(129, 661);
-			this->label22->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label22->Location = System::Drawing::Point(194, 1017);
 			this->label22->Name = L"label22";
-			this->label22->Size = System::Drawing::Size(41, 13);
+			this->label22->Size = System::Drawing::Size(60, 20);
 			this->label22->TabIndex = 26;
 			this->label22->Text = L"label22";
 			this->label22->Visible = false;
@@ -440,10 +416,9 @@ namespace QuakeUI {
 			// label23
 			// 
 			this->label23->AutoSize = true;
-			this->label23->Location = System::Drawing::Point(247, 661);
-			this->label23->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label23->Location = System::Drawing::Point(370, 1017);
 			this->label23->Name = L"label23";
-			this->label23->Size = System::Drawing::Size(41, 13);
+			this->label23->Size = System::Drawing::Size(60, 20);
 			this->label23->TabIndex = 27;
 			this->label23->Text = L"label23";
 			this->label23->Visible = false;
@@ -451,10 +426,9 @@ namespace QuakeUI {
 			// label24
 			// 
 			this->label24->AutoSize = true;
-			this->label24->Location = System::Drawing::Point(371, 661);
-			this->label24->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label24->Location = System::Drawing::Point(556, 1017);
 			this->label24->Name = L"label24";
-			this->label24->Size = System::Drawing::Size(41, 13);
+			this->label24->Size = System::Drawing::Size(60, 20);
 			this->label24->TabIndex = 28;
 			this->label24->Text = L"label24";
 			this->label24->Visible = false;
@@ -462,10 +436,9 @@ namespace QuakeUI {
 			// label25
 			// 
 			this->label25->AutoSize = true;
-			this->label25->Location = System::Drawing::Point(476, 661);
-			this->label25->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label25->Location = System::Drawing::Point(714, 1017);
 			this->label25->Name = L"label25";
-			this->label25->Size = System::Drawing::Size(41, 13);
+			this->label25->Size = System::Drawing::Size(60, 20);
 			this->label25->TabIndex = 29;
 			this->label25->Text = L"label25";
 			this->label25->Visible = false;
@@ -473,10 +446,9 @@ namespace QuakeUI {
 			// label26
 			// 
 			this->label26->AutoSize = true;
-			this->label26->Location = System::Drawing::Point(599, 661);
-			this->label26->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label26->Location = System::Drawing::Point(898, 1017);
 			this->label26->Name = L"label26";
-			this->label26->Size = System::Drawing::Size(41, 13);
+			this->label26->Size = System::Drawing::Size(60, 20);
 			this->label26->TabIndex = 30;
 			this->label26->Text = L"label26";
 			this->label26->Visible = false;
@@ -484,10 +456,9 @@ namespace QuakeUI {
 			// label27
 			// 
 			this->label27->AutoSize = true;
-			this->label27->Location = System::Drawing::Point(129, 689);
-			this->label27->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label27->Location = System::Drawing::Point(194, 1060);
 			this->label27->Name = L"label27";
-			this->label27->Size = System::Drawing::Size(41, 13);
+			this->label27->Size = System::Drawing::Size(60, 20);
 			this->label27->TabIndex = 31;
 			this->label27->Text = L"label27";
 			this->label27->Visible = false;
@@ -495,10 +466,9 @@ namespace QuakeUI {
 			// label28
 			// 
 			this->label28->AutoSize = true;
-			this->label28->Location = System::Drawing::Point(247, 689);
-			this->label28->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label28->Location = System::Drawing::Point(370, 1060);
 			this->label28->Name = L"label28";
-			this->label28->Size = System::Drawing::Size(41, 13);
+			this->label28->Size = System::Drawing::Size(60, 20);
 			this->label28->TabIndex = 32;
 			this->label28->Text = L"label28";
 			this->label28->Visible = false;
@@ -506,10 +476,9 @@ namespace QuakeUI {
 			// label29
 			// 
 			this->label29->AutoSize = true;
-			this->label29->Location = System::Drawing::Point(371, 689);
-			this->label29->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label29->Location = System::Drawing::Point(556, 1060);
 			this->label29->Name = L"label29";
-			this->label29->Size = System::Drawing::Size(41, 13);
+			this->label29->Size = System::Drawing::Size(60, 20);
 			this->label29->TabIndex = 33;
 			this->label29->Text = L"label29";
 			this->label29->Visible = false;
@@ -517,10 +486,9 @@ namespace QuakeUI {
 			// label30
 			// 
 			this->label30->AutoSize = true;
-			this->label30->Location = System::Drawing::Point(476, 689);
-			this->label30->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label30->Location = System::Drawing::Point(714, 1060);
 			this->label30->Name = L"label30";
-			this->label30->Size = System::Drawing::Size(41, 13);
+			this->label30->Size = System::Drawing::Size(60, 20);
 			this->label30->TabIndex = 34;
 			this->label30->Text = L"label30";
 			this->label30->Visible = false;
@@ -528,10 +496,9 @@ namespace QuakeUI {
 			// label31
 			// 
 			this->label31->AutoSize = true;
-			this->label31->Location = System::Drawing::Point(599, 689);
-			this->label31->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label31->Location = System::Drawing::Point(898, 1060);
 			this->label31->Name = L"label31";
-			this->label31->Size = System::Drawing::Size(41, 13);
+			this->label31->Size = System::Drawing::Size(60, 20);
 			this->label31->TabIndex = 35;
 			this->label31->Text = L"label31";
 			this->label31->Visible = false;
@@ -539,10 +506,9 @@ namespace QuakeUI {
 			// label32
 			// 
 			this->label32->AutoSize = true;
-			this->label32->Location = System::Drawing::Point(129, 713);
-			this->label32->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label32->Location = System::Drawing::Point(194, 1097);
 			this->label32->Name = L"label32";
-			this->label32->Size = System::Drawing::Size(41, 13);
+			this->label32->Size = System::Drawing::Size(60, 20);
 			this->label32->TabIndex = 36;
 			this->label32->Text = L"label32";
 			this->label32->Visible = false;
@@ -550,10 +516,9 @@ namespace QuakeUI {
 			// label33
 			// 
 			this->label33->AutoSize = true;
-			this->label33->Location = System::Drawing::Point(247, 713);
-			this->label33->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label33->Location = System::Drawing::Point(370, 1097);
 			this->label33->Name = L"label33";
-			this->label33->Size = System::Drawing::Size(41, 13);
+			this->label33->Size = System::Drawing::Size(60, 20);
 			this->label33->TabIndex = 37;
 			this->label33->Text = L"label33";
 			this->label33->Visible = false;
@@ -561,10 +526,9 @@ namespace QuakeUI {
 			// label34
 			// 
 			this->label34->AutoSize = true;
-			this->label34->Location = System::Drawing::Point(371, 713);
-			this->label34->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label34->Location = System::Drawing::Point(556, 1097);
 			this->label34->Name = L"label34";
-			this->label34->Size = System::Drawing::Size(41, 13);
+			this->label34->Size = System::Drawing::Size(60, 20);
 			this->label34->TabIndex = 38;
 			this->label34->Text = L"label34";
 			this->label34->Visible = false;
@@ -572,10 +536,9 @@ namespace QuakeUI {
 			// label35
 			// 
 			this->label35->AutoSize = true;
-			this->label35->Location = System::Drawing::Point(476, 713);
-			this->label35->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label35->Location = System::Drawing::Point(714, 1097);
 			this->label35->Name = L"label35";
-			this->label35->Size = System::Drawing::Size(41, 13);
+			this->label35->Size = System::Drawing::Size(60, 20);
 			this->label35->TabIndex = 39;
 			this->label35->Text = L"label35";
 			this->label35->Visible = false;
@@ -583,20 +546,18 @@ namespace QuakeUI {
 			// label36
 			// 
 			this->label36->AutoSize = true;
-			this->label36->Location = System::Drawing::Point(599, 713);
-			this->label36->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label36->Location = System::Drawing::Point(898, 1097);
 			this->label36->Name = L"label36";
-			this->label36->Size = System::Drawing::Size(41, 13);
+			this->label36->Size = System::Drawing::Size(60, 20);
 			this->label36->TabIndex = 40;
 			this->label36->Text = L"label36";
 			this->label36->Visible = false;
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(551, 494);
-			this->button1->Margin = System::Windows::Forms::Padding(2);
+			this->button1->Location = System::Drawing::Point(826, 760);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(61, 35);
+			this->button1->Size = System::Drawing::Size(92, 54);
 			this->button1->TabIndex = 41;
 			this->button1->Text = L"GO";
 			this->button1->UseVisualStyleBackColor = true;
@@ -606,9 +567,10 @@ namespace QuakeUI {
 			// 
 			this->radioButton1->AutoSize = true;
 			this->radioButton1->Checked = true;
-			this->radioButton1->Location = System::Drawing::Point(298, 485);
+			this->radioButton1->Location = System::Drawing::Point(447, 746);
+			this->radioButton1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->radioButton1->Name = L"radioButton1";
-			this->radioButton1->Size = System::Drawing::Size(77, 17);
+			this->radioButton1->Size = System::Drawing::Size(109, 24);
 			this->radioButton1->TabIndex = 42;
 			this->radioButton1->TabStop = true;
 			this->radioButton1->Text = L"Relevance";
@@ -618,9 +580,10 @@ namespace QuakeUI {
 			// radioButton2
 			// 
 			this->radioButton2->AutoSize = true;
-			this->radioButton2->Location = System::Drawing::Point(388, 485);
+			this->radioButton2->Location = System::Drawing::Point(582, 746);
+			this->radioButton2->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->radioButton2->Name = L"radioButton2";
-			this->radioButton2->Size = System::Drawing::Size(75, 17);
+			this->radioButton2->Size = System::Drawing::Size(109, 24);
 			this->radioButton2->TabIndex = 43;
 			this->radioButton2->Text = L"Magnitude";
 			this->radioButton2->UseVisualStyleBackColor = true;
@@ -629,9 +592,10 @@ namespace QuakeUI {
 			// radioButton3
 			// 
 			this->radioButton3->AutoSize = true;
-			this->radioButton3->Location = System::Drawing::Point(479, 485);
+			this->radioButton3->Location = System::Drawing::Point(718, 746);
+			this->radioButton3->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->radioButton3->Name = L"radioButton3";
-			this->radioButton3->Size = System::Drawing::Size(67, 17);
+			this->radioButton3->Size = System::Drawing::Size(97, 24);
 			this->radioButton3->TabIndex = 44;
 			this->radioButton3->Text = L"Distance";
 			this->radioButton3->UseVisualStyleBackColor = true;
@@ -640,9 +604,10 @@ namespace QuakeUI {
 			// pictureBox1
 			// 
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(33, 119);
+			this->pictureBox1->Location = System::Drawing::Point(50, 183);
+			this->pictureBox1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(720, 360);
+			this->pictureBox1->Size = System::Drawing::Size(1080, 554);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 45;
 			this->pictureBox1->TabStop = false;
@@ -653,9 +618,10 @@ namespace QuakeUI {
 			// 
 			this->label37->AutoSize = true;
 			this->label37->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->label37->Location = System::Drawing::Point(206, 508);
+			this->label37->Location = System::Drawing::Point(309, 782);
+			this->label37->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label37->Name = L"label37";
-			this->label37->Size = System::Drawing::Size(85, 20);
+			this->label37->Size = System::Drawing::Size(127, 29);
 			this->label37->TabIndex = 46;
 			this->label37->Text = L"Sort using:";
 			// 
@@ -663,17 +629,19 @@ namespace QuakeUI {
 			// 
 			this->panel1->Controls->Add(this->radioButton5);
 			this->panel1->Controls->Add(this->radioButton4);
-			this->panel1->Location = System::Drawing::Point(293, 508);
+			this->panel1->Location = System::Drawing::Point(440, 782);
+			this->panel1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(224, 34);
+			this->panel1->Size = System::Drawing::Size(336, 52);
 			this->panel1->TabIndex = 47;
 			// 
 			// radioButton5
 			// 
 			this->radioButton5->AutoSize = true;
-			this->radioButton5->Location = System::Drawing::Point(95, 4);
+			this->radioButton5->Location = System::Drawing::Point(142, 6);
+			this->radioButton5->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->radioButton5->Name = L"radioButton5";
-			this->radioButton5->Size = System::Drawing::Size(116, 17);
+			this->radioButton5->Size = System::Drawing::Size(170, 24);
 			this->radioButton5->TabIndex = 1;
 			this->radioButton5->Text = L"kth largest/smallest";
 			this->radioButton5->UseVisualStyleBackColor = true;
@@ -683,9 +651,10 @@ namespace QuakeUI {
 			// 
 			this->radioButton4->AutoSize = true;
 			this->radioButton4->Checked = true;
-			this->radioButton4->Location = System::Drawing::Point(5, 4);
+			this->radioButton4->Location = System::Drawing::Point(8, 6);
+			this->radioButton4->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->radioButton4->Name = L"radioButton4";
-			this->radioButton4->Size = System::Drawing::Size(70, 17);
+			this->radioButton4->Size = System::Drawing::Size(101, 24);
 			this->radioButton4->TabIndex = 0;
 			this->radioButton4->TabStop = true;
 			this->radioButton4->Text = L"Quicksort";
@@ -694,10 +663,10 @@ namespace QuakeUI {
 			// 
 			// MyForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoValidate = System::Windows::Forms::AutoValidate::EnableAllowFocusChange;
-			this->ClientSize = System::Drawing::Size(784, 761);
+			this->ClientSize = System::Drawing::Size(1176, 1171);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->label37);
 			this->Controls->Add(this->pictureBox1);
@@ -743,7 +712,6 @@ namespace QuakeUI {
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
-			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"MyForm";
 			this->Text = L"QuakeTrack";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
