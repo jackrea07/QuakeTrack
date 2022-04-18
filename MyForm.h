@@ -788,7 +788,7 @@ namespace QuakeUI {
 		float userLong = float(userLongD);
 		//int sortParam = System::Convert::ToInt16(textBox3->Text); //1 for relevance, 2 for magnitude, 3 for distance
 		QuakeVec gamer(userLat, userLong);
-		
+
 		std::vector<Quake> sol;
 		//std::vector<Quake> sol = gamer.heapSort(nullptr, gamer.quakes.size(), "ascending", sortParam);
 		if (sortUsing == 1) { //quicksort
@@ -886,12 +886,12 @@ namespace QuakeUI {
 	}
 	private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-	
-private: System::Void radioButton4_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-	sortUsing = 1;
-}
-private: System::Void radioButton5_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-	sortUsing = 2;
-}
-};
+
+	private: System::Void radioButton4_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+		sortUsing = 1;
+	}
+	private: System::Void radioButton5_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+		sortUsing = 2;
+	}
+	};
 }
