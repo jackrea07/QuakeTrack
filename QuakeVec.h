@@ -214,8 +214,21 @@ public:
 			int i = 0;
 		}
 	}
-	void HeapSort(std::string)
-	{
+	
+	std::vector<Quake> kthSmallest(std::vector<Quake>& quakes, int k, int metric) {
+		Heap heap("max", (char)metric);
+		for (int i = 0; i < quakes.size(); i++) {
+			if (heap.size() >= k && quakes[i].GetRelevance() > heap.top().GetRelevance())
+				continue;
+			heap.insert(quakes[i]);
+			if (heap.size() > k)
+				heap.extract();
 
+		}
+		vector<Quake> result;
+		for (int i = 0; i < k; i++) {
+			result.push_back(heap.extract());
+		}
+		return result;
 	}
 };
