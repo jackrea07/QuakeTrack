@@ -79,40 +79,44 @@ public:
 	}
 	int Partition(int sortParam, int first, int last, int pivotindex)
 	{
-		int pivot = quakes[pivotindex].GetMag();
-		int up = first;
-		int down = last;
-
-		while (up < down)
+		if (first + pivotindex < last) 
 		{
-			while (up < last)
-			{
-				if (quakes[up].GetMag() > pivot)
-				{
-					break;
-				}
-				up++;
-			}
-			while (down > first)
-			{
-				if (quakes[down].GetMag() < pivot)
-				{
-					break;
-				}
-				down--;
-			}
-			if (up < down)
-			{
-				Quake temp = quakes[down];
-				quakes[down] = quakes[up];
-				quakes[up] = temp;
-			}
-		}
+			float pivot = quakes[first + pivotindex].GetMag();
+			int up = first;
+			int down = last;
 
-		Quake temp = quakes[down];
-		quakes[down] = quakes[pivotindex];
-		quakes[pivotindex] = temp;
-		return down;
+			while (up < down)
+			{
+				while (up < last)
+				{
+					if (quakes[up].GetMag() > pivot)
+					{
+						break;
+					}
+					up++;
+				}
+				while (down > first)
+				{
+					if (quakes[down].GetMag() < pivot)
+					{
+						break;
+					}
+					down--;
+				}
+				if (up < down)
+				{
+					Quake temp = quakes[down];
+					quakes[down] = quakes[up];
+					quakes[up] = temp;
+				}
+			}
+
+			Quake temp = quakes[down];
+			quakes[down] = quakes[first + pivotindex];
+			quakes[first + pivotindex] = temp;	
+			return down;
+		}
+		return last;
 	}
 	void QuickSort(int sortParam, int first, int last, int pivotindex)
 	{
@@ -120,7 +124,7 @@ public:
 		{
 			int pivot = Partition(sortParam, first, last, pivotindex);
 			QuickSort(sortParam, first, pivot - 1, pivotindex);
-			QuickSort(sortParam, pivot + 1, last, pivot + 1);
+			QuickSort(sortParam, pivot + 1, last, pivotindex);
 		}
 	}
 	void HeapSort(std::string)
