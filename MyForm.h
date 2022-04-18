@@ -275,11 +275,11 @@ namespace QuakeUI {
 			this->label9->AutoSize = true;
 			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label9->Location = System::Drawing::Point(556, 889);
+			this->label9->Location = System::Drawing::Point(527, 889);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(58, 20);
+			this->label9->Size = System::Drawing::Size(116, 20);
 			this->label9->TabIndex = 13;
-			this->label9->Text = L"Depth";
+			this->label9->Text = L"Depth (miles)";
 			// 
 			// label10
 			// 
