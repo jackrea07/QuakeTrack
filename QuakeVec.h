@@ -215,10 +215,25 @@ public:
 		}
 	}
 	
+	//TODO: add support for kth largest for magnitude and relevance
 	std::vector<Quake> kthSmallest(std::vector<Quake>& quakes, int k, int metric) {
 		Heap heap("max", (char)metric);
 		for (int i = 0; i < quakes.size(); i++) {
-			if (heap.size() >= k && quakes[i].GetRelevance() > heap.top().GetRelevance())
+			float currentValue = 0;
+			float heapTopValue = 0;
+			if (metric == 1) {
+				currentValue = quakes[i].GetRelevance();
+				heapTopValue = heap.top().GetRelevance();
+			}
+			else if (metric == 2) {
+				currentValue = quakes[i].GetMag();
+				heapTopValue = heap.top().GetMag();
+			}
+			else if (metric == 3) {
+				currentValue = quakes[i].GetDistance();
+				heapTopValue = heap.top().GetDistance();
+			}
+			if (heap.size() >= k && currentValue > heapTopValue)
 				continue;
 			heap.insert(quakes[i]);
 			if (heap.size() > k)
