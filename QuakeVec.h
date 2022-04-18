@@ -1,5 +1,6 @@
 #pragma once
 #include "Quake.h"
+#include "Heap.h"
 class QuakeVec
 {
 public:
@@ -77,11 +78,20 @@ public:
 		}
 		return solution;
 	}
+
+	std::vector<Quake> ReturnBottom5(int sortParam) {
+		std::vector<Quake> solution;
+		for (int i = quakes.size() - 6; i < quakes.size(); i++) {
+			solution.push_back(quakes[i]);
+		}
+		return solution;
+	}
+
 	int Partition(int sortParam, int first, int last, int pivotindex)
 	{
-		if (sortParam == 1) 
+		if (sortParam == 1)
 		{
-			if (first + pivotindex < last) 
+			if (first + pivotindex < last)
 			{
 				float pivot = quakes[first + pivotindex].GetMag();
 				int up = first;
@@ -115,7 +125,7 @@ public:
 
 				Quake temp = quakes[down];
 				quakes[down] = quakes[first + pivotindex];
-				quakes[first + pivotindex] = temp;	
+				quakes[first + pivotindex] = temp;
 				return down;
 			}
 			return last;
@@ -161,7 +171,7 @@ public:
 			}
 			return last;
 		}
-		else if (sortParam == 3) 
+		else if (sortParam == 3)
 		{
 			if (first + pivotindex < last)
 			{
@@ -214,25 +224,14 @@ public:
 			int i = 0;
 		}
 	}
-	
+
 	//TODO: add support for kth largest for magnitude and relevance
 	std::vector<Quake> kthSmallest(std::vector<Quake>& quakes, int k, int metric) {
 		Heap heap("max", (char)metric);
 		for (int i = 0; i < quakes.size(); i++) {
 			float currentValue = 0;
 			float heapTopValue = 0;
-			if (metric == 1) {
-				currentValue = quakes[i].GetRelevance();
-				heapTopValue = heap.top().GetRelevance();
-			}
-			else if (metric == 2) {
-				currentValue = quakes[i].GetMag();
-				heapTopValue = heap.top().GetMag();
-			}
-			else if (metric == 3) {
-				currentValue = quakes[i].GetDistance();
-				heapTopValue = heap.top().GetDistance();
-			}
+			updateMetricValues(quakes, metric, heap, i, currentValue, heapTopValue);
 			if (heap.size() >= k && currentValue > heapTopValue)
 				continue;
 			heap.insert(quakes[i]);
@@ -245,5 +244,41 @@ public:
 			result.push_back(heap.extract());
 		}
 		return result;
+	}
+
+	std::vector<Quake> kthLargest(std::vector<Quake>& quakes, int k, int metric) {
+		Heap heap("min", (char)metric);
+		for (int i = 0; i < quakes.size(); i++) {
+			float currentValue = 0;
+			float heapTopValue = 0;
+			updateMetricValues(quakes, metric, heap, i, currentValue, heapTopValue);
+			if (heap.size() >= k && currentValue < heapTopValue)
+				continue;
+			heap.insert(quakes[i]);
+			if (heap.size() > k)
+				heap.extract();
+
+		}
+		vector<Quake> result;
+		for (int i = 0; i < k; i++) {
+			result.push_back(heap.extract());
+		}
+		return result;
+	}
+	
+	//Helper function for kth smallest/largest
+	void updateMetricValues(std::vector<Quake>& quakes, int &metric, Heap &heap, int &index, float &currentValue, float &heapTopValue) {
+		if (metric == 1) {
+			currentValue = quakes[index].GetRelevance();
+			heapTopValue = heap.top().GetRelevance();
+		}
+		else if (metric == 2) {
+			currentValue = quakes[index].GetMag();
+			heapTopValue = heap.top().GetMag();
+		}
+		else if (metric == 3) {
+			currentValue = quakes[index].GetDistance();
+			heapTopValue = heap.top().GetDistance();
+		}
 	}
 };
