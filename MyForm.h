@@ -297,11 +297,11 @@ namespace QuakeUI {
 			this->label11->AutoSize = true;
 			this->label11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label11->Location = System::Drawing::Point(822, 889);
+			this->label11->Location = System::Drawing::Point(828, 889);
 			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(234, 20);
+			this->label11->Size = System::Drawing::Size(224, 20);
 			this->label11->TabIndex = 15;
-			this->label11->Text = L"Relevance Score (Max: 100)";
+			this->label11->Text = L"Relevance Score (Max: 91)";
 			// 
 			// label12
 			// 
