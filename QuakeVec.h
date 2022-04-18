@@ -81,8 +81,8 @@ public:
 
 	std::vector<Quake> ReturnBottom5(int sortParam) {
 		std::vector<Quake> solution;
-		for (int i = quakes.size() - 6; i < quakes.size(); i++) {
-			solution.push_back(quakes[i]);
+		for (int i = 0; i < 5; i++) {
+			solution.push_back(quakes[quakes.size() - 1 - i]);
 		}
 		return solution;
 	}
@@ -93,7 +93,7 @@ public:
 		{
 			if (first + pivotindex < last)
 			{
-				float pivot = quakes[first + pivotindex].GetMag();
+				float pivot = quakes[first + pivotindex].GetRelevance();
 				int up = first;
 				int down = last;
 
@@ -243,6 +243,11 @@ public:
 		for (int i = 0; i < k; i++) {
 			result.push_back(heap.extract());
 		}
+		for (int i = 0; i < 2; i++) { //reverses result vector so that when displaying results, smallest value is displayed first
+			Quake temp = result[i];
+			result[i] = result[4 - i];
+			result[4 - i] = temp;
+		}
 		return result;
 	}
 
@@ -263,11 +268,16 @@ public:
 		for (int i = 0; i < k; i++) {
 			result.push_back(heap.extract());
 		}
+		for (int i = 0; i < 2; i++) { //reverses result vector so that when displaying results, largest value is displayed first
+			Quake temp = result[i];
+			result[i] = result[4 - i];
+			result[4 - i] = temp;
+		}
 		return result;
 	}
-	
+
 	//Helper function for kth smallest/largest
-	void updateMetricValues(std::vector<Quake>& quakes, int &metric, Heap &heap, int &index, float &currentValue, float &heapTopValue) {
+	void updateMetricValues(std::vector<Quake>& quakes, int& metric, Heap& heap, int& index, float& currentValue, float& heapTopValue) {
 		if (metric == 1) {
 			currentValue = quakes[index].GetRelevance();
 			heapTopValue = heap.top().GetRelevance();
