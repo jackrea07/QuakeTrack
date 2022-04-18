@@ -63,19 +63,19 @@ public:
 	void UpdateDistRel(float userLat, float userLong) {
 		this->distance = float(sqrt(pow(double(double(userLong) - double(longitude)), 2) + pow(double(double(userLat) - double(latitude)), 2))) * 69;
 		int distRel;
-		if (distance < 25)
+		if (distance < 50)
 			distRel = 10;
-		else if (distance > 25 && distance < 50)
-			distRel = 9;
 		else if (distance > 50 && distance < 100)
-			distRel = 8;
+			distRel = 9;
 		else if (distance > 100 && distance < 200)
-			distRel = 7;
+			distRel = 8;
 		else if (distance > 200 && distance < 500)
-			distRel = 6;
+			distRel = 7;
 		else if (distance > 500 && distance < 1000)
+			distRel = 6;
+		else if (distance > 1000 && distance < 1500)
 			distRel = 5;
-		else if (distance > 1000 && distance < 2000)
+		else if (distance > 1500 && distance < 2000)
 			distRel = 4;
 		else if (distance > 2000 && distance < 5000)
 			distRel = 3;
