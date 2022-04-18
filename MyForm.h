@@ -201,7 +201,6 @@ namespace QuakeUI {
 			this->label3->Size = System::Drawing::Size(67, 20);
 			this->label3->TabIndex = 6;
 			this->label3->Text = L"Latitude";
-			this->label3->Click += gcnew System::EventHandler(this, &MyForm::label3_Click);
 			// 
 			// label4
 			// 
@@ -612,7 +611,7 @@ namespace QuakeUI {
 			this->Controls->Add(this->label15);
 			this->Controls->Add(this->label14);
 			this->Controls->Add(this->label13);
-			this->Controls->Add(this->label12);
+			this->Controls->Add(this->label12);	
 			this->Controls->Add(this->label11);
 			this->Controls->Add(this->label10);
 			this->Controls->Add(this->label9);
@@ -626,6 +625,33 @@ namespace QuakeUI {
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
+			
+			label12->Visible = false;
+			label13->Visible = false;
+			label14->Visible = false;
+			label15->Visible = false;
+			label16->Visible = false;
+			label17->Visible = false;
+			label18->Visible = false;
+			label19->Visible = false;
+			label20->Visible = false;
+			label21->Visible = false;
+			label22->Visible = false;
+			label23->Visible = false;
+			label24->Visible = false;
+			label25->Visible = false;
+			label26->Visible = false;
+			label27->Visible = false;
+			label28->Visible = false;
+			label29->Visible = false;
+			label30->Visible = false;
+			label31->Visible = false;
+			label32->Visible = false;
+			label33->Visible = false;
+			label34->Visible = false;
+			label35->Visible = false;
+			label36->Visible = false;
+
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
@@ -636,6 +662,32 @@ namespace QuakeUI {
 #pragma endregion
 
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		label12->Visible = true;
+		label13->Visible = true;
+		label14->Visible = true;
+		label15->Visible = true;
+		label16->Visible = true;
+		label17->Visible = true;
+		label18->Visible = true;
+		label19->Visible = true;
+		label20->Visible = true;
+		label21->Visible = true;
+		label22->Visible = true;
+		label23->Visible = true;
+		label24->Visible = true;
+		label25->Visible = true;
+		label26->Visible = true;
+		label27->Visible = true;
+		label28->Visible = true;
+		label29->Visible = true;
+		label30->Visible = true;
+		label31->Visible = true;
+		label32->Visible = true;
+		label33->Visible = true;
+		label34->Visible = true;
+		label35->Visible = true;
+		label36->Visible = true;
+
 		double userLatD = System::Convert::ToDouble(textBox1->Text);
 		float userLat = float(userLatD);
 		double userLongD = System::Convert::ToDouble(textBox2->Text);
@@ -721,7 +773,5 @@ namespace QuakeUI {
 		textBox2->Text = System::Convert::ToString(e->X / 2.0 - 180);
 		textBox1->Text = System::Convert::ToString((e->Y / 2.0 - 90) * -1);
 	}
-	private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	};
+};
 }
