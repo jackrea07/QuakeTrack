@@ -30,6 +30,7 @@ public:
 
 				std::getline(stream, tempDepth, ',');
 				depth = stof(tempDepth);
+				depth = depth * 0.621371;
 
 				getline(stream, tempMag, ',');
 				mag = stof(tempMag);
