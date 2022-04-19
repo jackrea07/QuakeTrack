@@ -28,7 +28,7 @@ public:
 	void EditDate(std::string date) {
 		this->date = date;
 	}
-	void EditTime(float relevance) {
+	void EditRelevance(float relevance) {
 		this->relevance = relevance;
 	}
 	float GetDistance() {
@@ -46,6 +46,12 @@ public:
 	float GetRelevance() {
 		return relevance;
 	}
+	float GetLatitude() {
+		return latitude;
+	}
+	float GetLongitude() {
+		return longitude;
+	}
 	Quake() {
 		depth = 0;
 		mag = 0;
@@ -59,10 +65,12 @@ public:
 		this->date = date;
 		this->distance = dist;
 		this->relevance = relevance;
+		this->longitude = longitude;
+		this->latitude = latitude;
 	}
 	void UpdateDistRel(float userLat, float userLong) {
-		this->distance = float(sqrt(pow(double(double(userLong) - double(longitude)), 2) + pow(double(double(userLat) - double(latitude)), 2))) * 69;
-		int distRel;
+		this->distance = (float)sqrt(pow((double)((double)userLong - (double)longitude), 2) + pow(double((double)userLat - (double)latitude), 2)) * 69;
+		double distRel;
 		if (distance < 50)
 			distRel = 10;
 		else if (distance > 50 && distance < 100)

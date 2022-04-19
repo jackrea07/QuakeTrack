@@ -5,8 +5,9 @@ class QuakeVec
 {
 public:
 	std::vector<Quake> quakes;
+	Quake* q;
 
-	QuakeVec(float userLat, float userLong) {
+	QuakeVec() {
 		std::ifstream inFile("quakes.csv");
 		if (inFile.is_open()) {
 
@@ -43,35 +44,66 @@ public:
 
 				getline(stream, date);
 
-				float distance = float(sqrt(pow(double(double(userLong) - double(longitude)), 2) + pow(double(double(userLat) - double(latitude)), 2))) * 69; //convert to miles from user location
-				int distRel;
-				if (distance < 50)
-					distRel = 10;
-				else if (distance > 50 && distance < 100)
-					distRel = 9;
-				else if (distance > 100 && distance < 200)
-					distRel = 8;
-				else if (distance > 200 && distance < 500)
-					distRel = 7;
-				else if (distance > 500 && distance < 1000)
-					distRel = 6;
-				else if (distance > 1000 && distance < 1500)
-					distRel = 5;
-				else if (distance > 1500 && distance < 2000)
-					distRel = 4;
-				else if (distance > 2000 && distance < 5000)
-					distRel = 3;
-				else if (distance > 5000 && distance < 10000)
-					distRel = 2;
-				else
-					distRel = 1;
-				float relevance = distRel * mag;
+				Quake quake(depth, mag, 0, 0, date, longitude, latitude);
+				quakes.push_back(quake);
+			}
+		}
+		q = new Quake[quakes.size()];
+		for (int i = 0; i < quakes.size(); i++) {
+			q[i] = quakes[i];
+		}
+	}
 
-				Quake quake(depth, mag, distance, relevance, date, longitude, latitude);
+	void parseData() {
+		std::ifstream inFile("quakes.csv");
+		if (inFile.is_open()) {
+
+			std::string fileLine;
+			std::getline(inFile, fileLine);
+
+			while (getline(inFile, fileLine)) {
+
+				std::istringstream stream(fileLine);
+
+				std::string date;
+				float mag;
+				float depth;
+				float longitude;
+				float latitude;
+
+				std::string tempMag;
+				std::string tempDepth;
+				std::string tempLong;
+				std::string tempLat;
+
+				std::getline(stream, tempDepth, ',');
+				depth = stof(tempDepth);
+				depth = depth * 0.621371;
+
+				getline(stream, tempMag, ',');
+				mag = stof(tempMag);
+
+				getline(stream, tempLat, ',');
+				latitude = stof(tempLat);
+
+				getline(stream, tempLong, ',');
+				longitude = stof(tempLong);
+
+				getline(stream, date);
+
+				Quake quake(depth, mag, 0.0f, 0.0f, date, longitude, latitude);
 				quakes.push_back(quake);
 			}
 		}
 	}
+
+	void updateDistanceAndRelevance(float userLat, float userLong) {
+		for (int i = 0; i < quakes.size(); i++) {
+			quakes[i].UpdateDistRel(userLat, userLong);
+			q[i].UpdateDistRel(userLat, userLong);
+		}
+	}
+
 	std::vector<Quake> ReturnTop5(int sortParam) {
 		std::vector<Quake> solution;
 		for (int i = 0; i < 5; i++) {
@@ -84,6 +116,14 @@ public:
 		std::vector<Quake> solution;
 		for (int i = 0; i < 5; i++) {
 			solution.push_back(quakes[quakes.size() - 1 - i]);
+		}
+		return solution;
+	}
+
+	std::vector<Quake> ReturnTop5_2() {
+		std::vector<Quake> solution;
+		for (int i = 0; i < 5; i++) {
+			solution.push_back(q[i]);
 		}
 		return solution;
 	}
@@ -226,7 +266,22 @@ public:
 		}
 	}
 
-	//TODO: add support for kth largest for magnitude and relevance
+	vector<Quake> heapSort(Quake* quakes, int size, string type, int metric) {
+		if (type == "ascending") {
+			type = "min";
+		}
+		else if (type == "descending") {
+			type = "max";
+		}
+		Heap heap;
+		heap.buildHeapInPlace(q, type, (char)metric, size);
+		vector<Quake> result;
+		for (int i = 0; i < size; i++) {
+			result.push_back(heap.heapSortExtract());
+		}
+		return result;
+	}
+
 	std::vector<Quake> kthSmallest(std::vector<Quake>& quakes, int k, int metric) {
 		Heap heap("max", (char)metric);
 		for (int i = 0; i < quakes.size(); i++) {

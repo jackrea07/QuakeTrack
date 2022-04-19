@@ -27,16 +27,17 @@ class Heap
 	void heapifyDown(int index);
 	bool heapifyUpCheck(int parent, int current);
 	float getMetricValue(Quake q);
-	
+
 public:
 	Heap(string t, char m);
 	Heap();
 	void insert(Quake q);
+	Quake heapSortExtract();
 	Quake extract();
 	unsigned int size();
 	Quake top();
 	void printHeap();
 	void printHeap2();
 	void buildHeapInPlace(Quake* quakes, string t, char m, int n);
+	~Heap();
 };
-

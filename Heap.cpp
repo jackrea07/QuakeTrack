@@ -34,8 +34,18 @@ Quake Heap::extract() {
 	return root;
 }
 
+Quake Heap::heapSortExtract() {
+	Quake root = heap[0];
+	currentSize--;
+	nextOpenIndex--;
+	heap[0] = heap[nextOpenIndex];
+	heap[nextOpenIndex] = root;
+	heapifyDown(0);
+	return root;
+}
+
 void Heap::buildHeapInPlace(Quake* quakes, string t, char m, int n) {
-	delete[] heap;
+	//delete[] heap;
 	type = t;
 	metric = m;
 	heap = quakes;
@@ -94,7 +104,7 @@ void Heap::heapifyDown(int index) {
 	Quake current = heap[index];
 	float left, right;
 	if (leftPosition > currentSize - 1) {
-		left = type == "min" ? FLOAT_MAX : FLOAT_MIN; 
+		left = type == "min" ? FLOAT_MAX : FLOAT_MIN;
 		return;
 	}
 	else {
@@ -102,7 +112,7 @@ void Heap::heapifyDown(int index) {
 	}
 
 	if (rightPosition > currentSize - 1) {
-		right = type == "min" ? FLOAT_MAX : FLOAT_MIN; 
+		right = type == "min" ? FLOAT_MAX : FLOAT_MIN;
 	}
 	else {
 		right = getMetricValue(heap[rightPosition]);
@@ -121,7 +131,7 @@ void Heap::heapifyDown(int index) {
 			heapifyDown(minIndex);
 		}
 	}
-	else if(type == "max") {
+	else if (type == "max") {
 		if (getMetricValue(current) < left || getMetricValue(current) < right) {
 			int maxIndex;
 			if (left >= right) {
@@ -134,7 +144,7 @@ void Heap::heapifyDown(int index) {
 			heap[maxIndex] = current;
 			heapifyDown(maxIndex);
 		}
-	}	
+	}
 }
 
 unsigned int Heap::size() {
@@ -167,10 +177,14 @@ float Heap::getMetricValue(Quake q) {
 	if (metric == 1) {
 		return q.GetRelevance();
 	}
-	else if (metric == 3) {
-		return q.GetDistance();
-	}
 	else if (metric == 2) {
 		return q.GetMag();
 	}
+	else if (metric == 3) {
+		return q.GetDistance();
+	}
+}
+
+Heap::~Heap() {
+	//delete[] heap;
 }
