@@ -347,4 +347,95 @@ public:
 			heapTopValue = heap.top().GetDistance();
 		}
 	}
+
+	void mergesort(int left, int right, int metric)
+	{
+		if (left < right)
+		{
+			int middle = left + (right - left) / 2;
+			mergesort(left, middle, metric);
+			mergesort(middle + 1, right, metric);
+			merge(left, middle, right, metric);
+		}
+
+	}
+	void merge(int left, int middle, int right, int metric)
+	{
+		vector<Quake> vectL(middle - left + 1);
+		vector<Quake> vectR(right - middle);
+
+		for (int i = 0; i < vectL.size(); i++)
+			vectL[i] = quakes[left + i];
+		for (int i = 0; i < vectR.size(); i++)
+			vectR[i] = quakes[middle + 1 + i];
+
+		int i = 0;
+		int j = 0;
+		int q = left;
+		while (i < vectL.size() && j < vectR.size())
+		{
+			if (metric == 1) 
+			{
+				if (vectL[i].GetRelevance() <= vectR[j].GetRelevance())
+				{
+					quakes[q] = vectL[i];
+					i++;
+				}
+				else
+				{
+					quakes[q] = vectR[j];
+					j++;
+				}
+			}
+			else if (metric == 2) 
+			{
+				if (vectL[i].GetMag() <= vectR[j].GetMag())
+				{
+					quakes[q] = vectL[i];
+					i++;
+				}
+				else
+				{
+					quakes[q] = vectR[j];
+					j++;
+				}
+			}
+			else if (metric == 3)
+			{
+				if (vectL[i].GetDistance() <= vectR[j].GetDistance())
+				{
+					quakes[q] = vectL[i];
+					i++;
+				}
+				else
+				{
+					quakes[q] = vectR[j];
+					j++;
+				}
+			}
+			q++;
+		}
+
+		// If i vector hits the end and j isn't at the end copy rest of j vector 
+		if (i == vectL.size())
+		{
+			while (j < vectR.size())
+			{
+				quakes[q] = vectR[j];
+				q++;
+				j++;
+			}
+		}
+
+		// If j vector hits the end and i isn't at the end copy rest of i vector
+		if (j == vectR.size())
+		{
+			while (i < vectL.size())
+			{
+				quakes[q] = vectL[i];
+				q++;
+				i++;
+			}
+		}
+	}
 };
