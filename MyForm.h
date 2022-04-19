@@ -810,6 +810,7 @@ namespace QuakeUI {
 #pragma endregion
 
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Cursor = System::Windows::Forms::Cursors::AppStarting;
 		label12->Visible = true;
 		label13->Visible = true;
 		label14->Visible = true;
@@ -928,6 +929,7 @@ namespace QuakeUI {
 		float depth5 = sol[4].GetDepth();
 		String^ date5 = gcnew String(sol[4].GetDate().c_str());
 		float relevance5 = sol[4].GetRelevance();
+		this->Cursor = System::Windows::Forms::Cursors::Default;
 		label12->Text = System::Convert::ToString(dist1);
 		label13->Text = System::Convert::ToString(mag1);
 		label14->Text = System::Convert::ToString(depth1);
