@@ -31,6 +31,9 @@ public:
 				std::string tempLat;
 
 				std::getline(stream, tempDepth, ',');
+				if (tempDepth == "")
+					tempDepth = "0";
+				depth = stof(tempDepth);
 				depth = stof(tempDepth);
 				depth = depth * 0.621371;
 
