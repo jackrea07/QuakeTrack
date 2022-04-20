@@ -5,6 +5,7 @@ class QuakeVec
 {
 public:
 	std::vector<Quake> quakes;
+	std::vector<Quake> unchanged;
 	Quake* q;
 
 	QuakeVec() {
@@ -46,6 +47,7 @@ public:
 
 				Quake quake(depth, mag, 0, 0, date, longitude, latitude);
 				quakes.push_back(quake);
+				unchanged.push_back(quake);
 			}
 		}
 		q = new Quake[quakes.size()];
@@ -438,4 +440,9 @@ public:
 			}
 		}
 	}
+	void resetVec()
+	{
+		quakes = unchanged;
+	}
+	
 };
