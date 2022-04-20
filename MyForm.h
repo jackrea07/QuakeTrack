@@ -986,6 +986,7 @@ namespace QuakeUI {
 		label36->Text = System::Convert::ToString(relevance5);
 
 		string row1[] = { to_string(dist1), to_string(mag1), to_string(depth1), sol[0].GetDate().c_str(), to_string(relevance1) };
+		gamer.resetVec();
 		//dataGridView1->Rows->Add(row1);
 	}
 		   //mag
