@@ -98,6 +98,8 @@ namespace QuakeUI {
 	private: System::Windows::Forms::Label^ label38;
 	private: System::Windows::Forms::RadioButton^ radioButton6;
 	private: System::Windows::Forms::RadioButton^ radioButton7;
+	private: System::Windows::Forms::Label^ label39;
+	private: System::Windows::Forms::TextBox^ textBox3;
 
 
 
@@ -172,6 +174,8 @@ namespace QuakeUI {
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->label37 = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->label39 = (gcnew System::Windows::Forms::Label());
+			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->radioButton7 = (gcnew System::Windows::Forms::RadioButton());
 			this->radioButton6 = (gcnew System::Windows::Forms::RadioButton());
 			this->radioButton5 = (gcnew System::Windows::Forms::RadioButton());
@@ -210,7 +214,7 @@ namespace QuakeUI {
 			// textBox1
 			// 
 			this->textBox1->Location = System::Drawing::Point(231, 94);
-			this->textBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->textBox1->Margin = System::Windows::Forms::Padding(2);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(118, 20);
 			this->textBox1->TabIndex = 4;
@@ -219,7 +223,7 @@ namespace QuakeUI {
 			// textBox2
 			// 
 			this->textBox2->Location = System::Drawing::Point(425, 94);
-			this->textBox2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->textBox2->Margin = System::Windows::Forms::Padding(2);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(117, 20);
 			this->textBox2->TabIndex = 5;
@@ -327,9 +331,9 @@ namespace QuakeUI {
 			this->label11->Location = System::Drawing::Point(552, 578);
 			this->label11->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(162, 13);
+			this->label11->Size = System::Drawing::Size(180, 13);
 			this->label11->TabIndex = 15;
-			this->label11->Text = L"Relevance Score (Max: 91)";
+			this->label11->Text = L"Relevance Score (Max: 100.5)";
 			// 
 			// label12
 			// 
@@ -609,7 +613,7 @@ namespace QuakeUI {
 			// button1
 			// 
 			this->button1->Location = System::Drawing::Point(628, 485);
-			this->button1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button1->Margin = System::Windows::Forms::Padding(2);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(62, 35);
 			this->button1->TabIndex = 41;
@@ -684,12 +688,15 @@ namespace QuakeUI {
 			this->label37->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
 			this->label37->Location = System::Drawing::Point(110, 513);
 			this->label37->Name = L"label37";
-			this->label37->Size = System::Drawing::Size(85, 20);
+			this->label37->Size = System::Drawing::Size(86, 20);
 			this->label37->TabIndex = 46;
-			this->label37->Text = L"Sort using:";
+			this->label37->Text = L"Find using:";
+			this->label37->Click += gcnew System::EventHandler(this, &MyForm::label37_Click);
 			// 
 			// panel1
 			// 
+			this->panel1->Controls->Add(this->label39);
+			this->panel1->Controls->Add(this->textBox3);
 			this->panel1->Controls->Add(this->radioButton7);
 			this->panel1->Controls->Add(this->radioButton6);
 			this->panel1->Controls->Add(this->radioButton5);
@@ -699,6 +706,23 @@ namespace QuakeUI {
 			this->panel1->Size = System::Drawing::Size(357, 41);
 			this->panel1->TabIndex = 47;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::panel1_Paint);
+			// 
+			// label39
+			// 
+			this->label39->AutoSize = true;
+			this->label39->Location = System::Drawing::Point(1, 24);
+			this->label39->Name = L"label39";
+			this->label39->Size = System::Drawing::Size(62, 13);
+			this->label39->TabIndex = 5;
+			this->label39->Text = L"Pivot index:";
+			// 
+			// textBox3
+			// 
+			this->textBox3->Location = System::Drawing::Point(69, 21);
+			this->textBox3->Name = L"textBox3";
+			this->textBox3->Size = System::Drawing::Size(33, 20);
+			this->textBox3->TabIndex = 4;
+			this->textBox3->Text = L"0";
 			// 
 			// radioButton7
 			// 
@@ -810,7 +834,7 @@ namespace QuakeUI {
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"MyForm";
 			this->Text = L"QuakeTrack";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
@@ -917,8 +941,9 @@ namespace QuakeUI {
 			sol = gamer.ReturnTop5_2();
 		}
 		else if (sortUsing == 4) { //quicksort
+			int pivot = System::Convert::ToInt32(textBox3->Text);
 			begin = std::chrono::steady_clock::now();
-			gamer.mergesort(0, gamer.quakes.size() - 1, sortParam);
+			gamer.mergesort(pivot, gamer.quakes.size() - 1, sortParam);
 			end = std::chrono::steady_clock::now();
 			if (sortParam == 1 || sortParam == 2) {
 				sol = gamer.ReturnBottom5(sortParam);
@@ -930,33 +955,33 @@ namespace QuakeUI {
 
 		time = to_string(std::chrono::duration_cast<std::chrono::nanoseconds> (end - begin).count());
 		String^ timeText = "Time taken: ";
-		String^ timeText2 = " nanoseconds";
-		label38->Text = timeText + System::Convert::ToString(std::chrono::duration_cast<std::chrono::nanoseconds> (end - begin).count()) + timeText2;
+		String^ timeText2 = " seconds";
+		label38->Text = timeText + System::Convert::ToString(std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count() / 1000.0) + timeText2;
 
 		float dist1 = sol[0].GetDistance();
 		float mag1 = sol[0].GetMag();
 		float depth1 = sol[0].GetDepth();
-		String^ date1 = gcnew String(sol[0].GetDate().c_str());
+		String^ date1 = gcnew String(sol[0].GetDate().substr(0, 10).c_str());
 		float relevance1 = sol[0].GetRelevance();
 		float dist2 = sol[1].GetDistance();
 		float mag2 = sol[1].GetMag();
 		float depth2 = sol[1].GetDepth();
-		String^ date2 = gcnew String(sol[1].GetDate().c_str());
+		String^ date2 = gcnew String(sol[1].GetDate().substr(0, 10).c_str());
 		float relevance2 = sol[1].GetRelevance();
 		float dist3 = sol[2].GetDistance();
 		float mag3 = sol[2].GetMag();
 		float depth3 = sol[2].GetDepth();
-		String^ date3 = gcnew String(sol[2].GetDate().c_str());
+		String^ date3 = gcnew String(sol[2].GetDate().substr(0, 10).c_str());
 		float relevance3 = sol[2].GetRelevance();
 		float dist4 = sol[3].GetDistance();
 		float mag4 = sol[3].GetMag();
 		float depth4 = sol[3].GetDepth();
-		String^ date4 = gcnew String(sol[3].GetDate().c_str());
+		String^ date4 = gcnew String(sol[3].GetDate().substr(0, 10).c_str());
 		float relevance4 = sol[3].GetRelevance();
 		float dist5 = sol[4].GetDistance();
 		float mag5 = sol[4].GetMag();
 		float depth5 = sol[4].GetDepth();
-		String^ date5 = gcnew String(sol[4].GetDate().c_str());
+		String^ date5 = gcnew String(sol[4].GetDate().substr(0, 10).c_str());
 		float relevance5 = sol[4].GetRelevance();
 		this->Cursor = System::Windows::Forms::Cursors::Default;
 		label12->Text = System::Convert::ToString(dist1);
@@ -1035,5 +1060,7 @@ namespace QuakeUI {
 	}
 	private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}
-	};
+	private: System::Void label37_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 }

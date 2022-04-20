@@ -34,7 +34,6 @@ public:
 				if (tempDepth == "")
 					tempDepth = "0";
 				depth = stof(tempDepth);
-				depth = stof(tempDepth);
 				depth = depth * 0.621371;
 
 				getline(stream, tempMag, ',');
@@ -379,7 +378,7 @@ public:
 		int q = left;
 		while (i < vectL.size() && j < vectR.size())
 		{
-			if (metric == 1) 
+			if (metric == 1)
 			{
 				if (vectL[i].GetRelevance() <= vectR[j].GetRelevance())
 				{
@@ -392,7 +391,7 @@ public:
 					j++;
 				}
 			}
-			else if (metric == 2) 
+			else if (metric == 2)
 			{
 				if (vectL[i].GetMag() <= vectR[j].GetMag())
 				{
@@ -447,5 +446,5 @@ public:
 	{
 		quakes = unchanged;
 	}
-	
+
 };

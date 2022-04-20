@@ -68,7 +68,7 @@ public:
 		this->longitude = longitude;
 		this->latitude = latitude;
 	}
-	void UpdateDistRel(float userLat, float userLong) {
+	void UpdateDistRel(float &userLat, float &userLong) {
 		this->distance = (float)sqrt(pow((double)((double)userLong - (double)longitude), 2) + pow(double((double)userLat - (double)latitude), 2)) * 69;
 		double distRel;
 		if (distance < 50)
@@ -91,6 +91,28 @@ public:
 			distRel = 2;
 		else
 			distRel = 1;
-		this->relevance = distRel * mag;
+
+		double depthRel;
+		if (depth <= 50)
+			depthRel = 1.0;
+		else if (depth > 50 && depth <= 100)
+			depthRel = 0.9;
+		else if (depth > 100 && depth <= 150)
+			depthRel = 0.8;
+		else if (depth > 150 && depth <= 200)
+			depthRel = 0.7;
+		else if (depth > 200 && depth <= 250)
+			depthRel = 0.6;
+		else if (depth > 250 && depth <= 300)
+			depthRel = 0.5;
+		else if (depth > 300 && depth <= 350)
+			depthRel = 0.4;
+		else if (depth > 350 && depth <= 400)
+			depthRel = 0.3;
+		else if (depth > 400)
+			depthRel = 0.2;
+		else
+			depthRel = 0.1;
+		this->relevance = sqrt(pow(distRel, 2) + pow(depthRel, 2)) * mag;
 	}
 };
